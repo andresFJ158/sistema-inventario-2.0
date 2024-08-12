@@ -153,7 +153,7 @@ class ControladorCategorias{
 			$respuesta = ModeloProductos::mdlMostrarProductos("productos", "id_categoria", $_GET['idCategoria'], "ASC");
 
 			if(!$respuesta){
-			$tabla ="Categorias";
+			$tabla ="categorias";
 			$datos = $_GET["idCategoria"];
 
 			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
