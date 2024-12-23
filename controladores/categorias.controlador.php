@@ -23,11 +23,11 @@ class ControladorCategorias{
 					echo'<script>
 
 					swal({
-						  type: "success",
-						  title: "La categoría ha sido guardada correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "success",
+						title: "La categoría ha sido guardada correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 									if (result.value) {
 
 									window.location = "categorias";
@@ -45,11 +45,11 @@ class ControladorCategorias{
 				echo'<script>
 
 					swal({
-						  type: "error",
-						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "error",
+						title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 							if (result.value) {
 
 							window.location = "categorias";
@@ -57,7 +57,7 @@ class ControladorCategorias{
 							}
 						})
 
-			  	</script>';
+				</script>';
 
 			}
 
@@ -91,8 +91,8 @@ class ControladorCategorias{
 
 				$tabla = "categorias";
 
-				$datos = array("categoria"=>$_POST["editarCategoria"],
-							   "id"=>$_POST["idCategoria"]);
+				$datos = array("nombre"=>$_POST["editarCategoria"],
+							"id"=>$_POST["idCategoria"]);
 
 				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
 
@@ -101,11 +101,11 @@ class ControladorCategorias{
 					echo'<script>
 
 					swal({
-						  type: "success",
-						  title: "La categoría ha sido cambiada correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "success",
+						title: "La categoría ha sido cambiada correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 									if (result.value) {
 
 									window.location = "categorias";
@@ -123,11 +123,11 @@ class ControladorCategorias{
 				echo'<script>
 
 					swal({
-						  type: "error",
-						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "error",
+						title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 							if (result.value) {
 
 							window.location = "categorias";
@@ -135,7 +135,7 @@ class ControladorCategorias{
 							}
 						})
 
-			  	</script>';
+				</script>';
 
 			}
 
@@ -163,11 +163,11 @@ class ControladorCategorias{
 				echo'<script>
 
 					swal({
-						  type: "success",
-						  title: "La categoría ha sido borrada correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "success",
+						title: "La categoría ha sido borrada correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 									if (result.value) {
 
 									window.location = "categorias";
@@ -178,14 +178,14 @@ class ControladorCategorias{
 					</script>';
 			}
 			
-		    } else {
+			} else {
 				echo'<script>
 				swal({
-					  type: "error",
-					  title: "La categoría no se pudo eliminar porque existe un producto en esa categoría",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
+					type: "error",
+					title: "La categoría no se pudo eliminar porque existe un producto en esa categoría",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar"
+					}).then(function(result){
 								if (result.value) {
 
 								window.location = "categorias";

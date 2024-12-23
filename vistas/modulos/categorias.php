@@ -79,7 +79,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                    <td class="text-uppercase">'.$value["nombre"].'</td>
 
                     <td>
 

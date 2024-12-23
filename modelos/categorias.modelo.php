@@ -10,23 +10,15 @@ class ModeloCategorias{
 
 	static public function mdlIngresarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria) VALUES (:categoria)");
-
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre) VALUES (:categoria)");
 		$stmt->bindParam(":categoria", $datos, PDO::PARAM_STR);
-
 		if($stmt->execute()){
-
 			return "ok";
-
 		}else{
-
 			return "error";
-		
 		}
-
 		$stmt->close();
 		$stmt = null;
-
 	}
 
 	/*=============================================
@@ -67,9 +59,9 @@ class ModeloCategorias{
 
 	static public function mdlEditarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :categoria WHERE id = :id");
 
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+		$stmt -> bindParam(":categoria", $datos["nombre"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){

@@ -76,7 +76,6 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
       	    var descripcion = respuesta["descripcion"];
           	var stock = respuesta["stock"];
           	var precio = respuesta["precio_venta"];
-
           	/*=============================================
           	EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
           	=============================================*/
@@ -169,20 +168,12 @@ CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
 $(".tablaVentas").on("draw.dt", function(){
 
 	if(localStorage.getItem("quitarProducto") != null){
-
 		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
-
 		for(var i = 0; i < listaIdProductos.length; i++){
-
 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
-
 		}
-
-
 	}
-
-
 })
 
 

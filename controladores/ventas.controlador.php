@@ -80,16 +80,21 @@ class ControladorVentas{
 			    $orden = "id";
 
 			    $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor, $orden);
-
+				
+				// MODIFICAR DESPUES AÑADE NUM DE VENTAS DEL PRODUCTO
 				$item1a = "ventas";
 				$valor1a = $value["cantidad"] + $traerProducto["ventas"];
 
 			    $nuevasVentas = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
+				// ACTUALIZA EL STOCK
+				$tabla = "registros_inventario";
+				$datos = [
+					"id_producto" => $value["id"],  
+					"cantidad" => -$value["cantidad"],      
+					"glosa" => "Venta del sistema"
+				];				
 
-				$item1b = "stock";
-				$valor1b = $value["stock"];
-
-				$nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
+				$nuevoStock = ModeloProductos::mdlRegistroInventario($tabla,$datos);
 
 			}
 
@@ -97,15 +102,15 @@ class ControladorVentas{
 
 			$item = "id";
 			$valor = $_POST["seleccionarCliente"];
-
+			// AÑADE EL NUMERO DE COMPRAS
 			$traerCliente = ModeloClientes::mdlMostrarClientes($tablaClientes, $item, $valor);
-
 			$item1a = "compras";
 				
 			$valor1a = array_sum($totalProductosComprados) + $traerCliente["compras"];
 
 			$comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1a, $valor1a, $valor);
-
+		
+			// ACTUALIZA ULTIMA COMPRA DEL CLIENTE 
 			$item1b = "ultima_compra";
 
 			date_default_timezone_set('America/La_Paz');
